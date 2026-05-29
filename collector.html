@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Collector Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+<h1>🚛 Collector Dashboard</h1>
+</nav>
+
+<div class="dashboard">
+
+<div class="card">
+<h2>Total Pickups</h2>
+<h1 id="totalPickups">0</h1>
+</div>
+
+<div class="card">
+<h2>Completed</h2>
+<h1 id="completedPickups">0</h1>
+</div>
+
+<div class="card">
+<h2>Pending</h2>
+<h1 id="pendingPickups">0</h1>
+</div>
+
+</div>
+
+<div id="collectorList"></div>
+
+<button class="route-btn"
+onclick="startRoute()">
+🚛 Start Collection Route
+</button>
+
+<div id="routeStatus"></div>
+
+<script src="collector.js"></script>
+
+</body>
+</html>
