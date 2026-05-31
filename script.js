@@ -1,36 +1,36 @@
-function submitRequest(){
+function submitRequest() {
 
-let request = {
+    let request = {
 
-name:
-document.getElementById("name").value,
+        name: document.getElementById("name").value,
 
-house:
-document.getElementById("house").value,
+        house: document.getElementById("house").value,
 
-street:
-document.getElementById("street").value,
+        street: document.getElementById("street").value,
 
-waste:
-document.getElementById("waste").value,
+        waste: document.getElementById("waste").value,
 
-status:"Pending"
+        status: "Pending"
 
-};
+    };
 
-let requests =
-JSON.parse(localStorage.getItem("requests"))
-|| [];
+    let requests =
+    JSON.parse(localStorage.getItem("requests"))
+    || [];
 
-requests.push(request);
+    requests.push(request);
 
-localStorage.setItem(
-"requests",
-JSON.stringify(requests)
-);
+    localStorage.setItem(
+        "requests",
+        JSON.stringify(requests)
+    );
 
-document.getElementById("message")
-.innerHTML =
-"✅ Request Submitted Successfully";
+    document.getElementById("message")
+    .innerHTML =
+    "✅ Request Submitted Successfully!";
+
+    document.getElementById("name").value = "";
+    document.getElementById("house").value = "";
+    document.getElementById("street").value = "";
 
 }
