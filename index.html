@@ -1,60 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Clean India</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Clean India - Resident Portal</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<nav class="navbar">
-<h1>♻ Clean India</h1>
-</nav>
+<div class="navbar">
+
+    ♻ Clean India - Resident Portal
+
+</div>
+
+<div class="dashboard">
+
+    <div class="card">
+
+        <h1>500+</h1>
+
+        <p>Pickups Completed</p>
+
+    </div>
+
+    <div class="card">
+
+        <h1>2 Tons</h1>
+
+        <p>Waste Managed</p>
+
+    </div>
+
+    <div class="card">
+
+        <h1>98%</h1>
+
+        <p>Efficiency</p>
+
+    </div>
+
+</div>
 
 <div class="hero">
 
-<div class="left">
+    <div class="left">
 
-<h1>Keep India Clean & Green</h1>
+        <h1>Welcome to Clean India</h1>
 
-<p>
-Smart Waste Collection Management System
-</p>
+        <p>
 
-<img src="https://www.vecteezy.com/photo/35315564-ai-generated-a-group-of-people-in-green-shirts-standing-around-a-green-recycling-bin-promoting-environmental-awareness-generative-ai"
-width="250">
+            Thank you for helping create a cleaner,
+            greener and smarter India.
 
-</div>
+        </p>
 
-<div class="right">
+        <br>
 
-<h2>Request Pickup</h2>
+        <p>
 
-<input type="text" id="name"
-placeholder="Enter Name">
+            Schedule your waste pickup quickly
+            and efficiently.
 
-<input type="text" id="house"
-placeholder="House Number">
+        </p>
 
-<input type="text" id="street"
-placeholder="Street Name">
+    </div>
 
-<select id="waste">
-<option>Wet Waste</option>
-<option>Dry Waste</option>
-</select>
+    <div class="right">
 
-<button onclick="submitRequest()">
-Request Collection
-</button>
+        <h2>Request Waste Pickup</h2>
 
-<p id="message"></p>
+        <input
+        type="text"
+        id="name"
+        placeholder="Enter Your Name">
 
-</div>
+        <input
+        type="text"
+        id="house"
+        placeholder="House Number">
+
+        <input
+        type="text"
+        id="street"
+        placeholder="Street Name">
+
+        <select id="waste">
+
+            <option>
+                Wet Waste
+            </option>
+
+            <option>
+                Dry Waste
+            </option>
+
+            <option>
+                Mixed Waste
+            </option>
+
+        </select>
+
+        <button onclick="submitRequest()">
+
+            Submit Request
+
+        </button>
+
+        <p id="message"></p>
+
+    </div>
 
 </div>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>

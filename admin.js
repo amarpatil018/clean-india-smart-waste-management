@@ -1,22 +1,26 @@
-// Get requests from localStorage
-
 let requests =
-JSON.parse(localStorage.getItem("requests"))
-|| [];
+JSON.parse(
+localStorage.getItem("requests")
+) || [];
 
-// Statistics
+let adminRequests =
+document.getElementById("adminRequests");
 
-let total = requests.length;
+let total =
+requests.length;
 
 let pending =
-requests.filter(r =>
-r.status === "Pending").length;
+requests.filter(
+r => r.status === "Pending"
+).length;
 
 let completed =
-requests.filter(r =>
-r.status === "Completed").length;
+requests.filter(
+r => r.status === "Completed"
+).length;
 
-// Update Dashboard Cards
+
+// Dashboard Numbers
 
 document.getElementById("total")
 .innerHTML = total;
@@ -27,39 +31,114 @@ document.getElementById("pending")
 document.getElementById("completed")
 .innerHTML = completed;
 
-// Show Requests
 
-let div =
-document.getElementById("adminRequests");
+// Efficiency
 
-requests.forEach((r,index)=>{
+let efficiency = 0;
 
-div.innerHTML += `
+if(total > 0){
+
+efficiency =
+Math.round(
+(completed / total) * 100
+);
+
+}
+
+document.getElementById("efficiency")
+.innerHTML =
+efficiency + "%";
+
+
+// AI Recommendation
+
+let suggestion = "";
+
+if(pending > 10){
+
+suggestion =
+"🚛 High request volume detected. Deploy extra collection vehicles.";
+
+}
+
+else if(pending > 5){
+
+suggestion =
+"📈 Moderate load. Increase collection frequency tomorrow.";
+
+}
+
+else if(pending > 0){
+
+suggestion =
+"✅ Current resources are sufficient for today's pickups.";
+
+}
+
+else{
+
+suggestion =
+"🎉 All pickup requests have been completed.";
+
+}
+
+document.getElementById(
+"aiSuggestion"
+).innerHTML =
+suggestion;
+
+
+// Display Requests
+
+function loadRequests(){
+
+adminRequests.innerHTML = "";
+
+requests.forEach((request,index)=>{
+
+let statusClass = "";
+
+if(request.status === "Pending"){
+
+statusClass = "pending";
+
+}
+else if(request.status === "In Progress"){
+
+statusClass = "progress";
+
+}
+else{
+
+statusClass = "completed";
+
+}
+
+adminRequests.innerHTML += `
 
 <div class="request-card">
 
-<h3>${r.name}</h3>
+<h3>${request.name}</h3>
 
-<p><b>House:</b> ${r.house}</p>
+<p><b>House:</b> ${request.house}</p>
 
-<p><b>Street:</b> ${r.street}</p>
+<p><b>Street:</b> ${request.street}</p>
 
-<p><b>Waste:</b> ${r.waste}</p>
+<p><b>Waste:</b> ${request.waste}</p>
 
-<p>
-<b>Status:</b>
+<p><b>Date:</b> ${request.date}</p>
 
-<span class="status">
-${r.status}
-</span>
-
+<p class="${statusClass}">
+Status: ${request.status}
 </p>
 
 <button onclick="startPickup(${index})">
 🚛 Start Pickup
 </button>
 
-<button onclick="completeRequest(${index})">
+<br><br>
+
+<button onclick="completePickup(${index})">
 ✅ Complete Pickup
 </button>
 
@@ -68,6 +147,11 @@ ${r.status}
 `;
 
 });
+
+}
+
+loadRequests();
+
 
 // Start Pickup
 
@@ -85,9 +169,10 @@ location.reload();
 
 }
 
+
 // Complete Pickup
 
-function completeRequest(index){
+function completePickup(index){
 
 requests[index].status =
 "Completed";
@@ -98,26 +183,5 @@ JSON.stringify(requests)
 );
 
 location.reload();
-
-}
-
-// AI Recommendation
-
-let suggestion =
-
-pending > 5
-
-?
-
-"🤖 High request volume detected. Deploy an additional collection vehicle."
-
-:
-
-"🤖 Normal request load. Current resources are sufficient.";
-
-if(document.getElementById("aiSuggestion")){
-
-document.getElementById("aiSuggestion")
-.innerHTML = suggestion;
 
 }

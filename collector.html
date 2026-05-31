@@ -1,45 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Collector Dashboard</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<nav class="navbar">
-<h1>🚛 Collector Dashboard</h1>
-</nav>
+<div class="navbar">
+
+🚛 Clean India - Collector Dashboard
+
+</div>
+
+<!-- Collector Stats -->
 
 <div class="dashboard">
 
 <div class="card">
-<h2>Total Pickups</h2>
-<h1 id="totalPickups">0</h1>
+
+<h1 id="pendingCount">0</h1>
+
+<p>Pending Pickups</p>
+
 </div>
 
 <div class="card">
-<h2>Completed</h2>
-<h1 id="completedPickups">0</h1>
+
+<h1 id="progressCount">0</h1>
+
+<p>In Progress</p>
+
 </div>
 
 <div class="card">
-<h2>Pending</h2>
-<h1 id="pendingPickups">0</h1>
+
+<h1 id="completedCount">0</h1>
+
+<p>Completed Pickups</p>
+
+</div>
+
+</div>
+
+<!-- Collector Message -->
+
+<div class="ai-box">
+
+<h2>📍 Today's Collection Route</h2>
+
+<p id="routeMessage">
+
+Loading Route...
+
+</p>
+
+</div>
+
+<!-- Active Pickups -->
+
+<div class="left" style="width:95%;margin:20px auto;">
+
+<h1>🚛 Assigned Pickups</h1>
+
+<div id="collectorRequests">
+
 </div>
 
 </div>
 
-<div id="collectorList"></div>
+<!-- Pickup History -->
 
-<button class="route-btn"
-onclick="startRoute()">
-🚛 Start Collection Route
-</button>
+<div class="left" style="width:95%;margin:20px auto;">
 
-<div id="routeStatus"></div>
+<h1>✅ Completed Pickup History</h1>
+
+<div id="history">
+
+</div>
+
+</div>
 
 <script src="collector.js"></script>
 
 </body>
+
 </html>

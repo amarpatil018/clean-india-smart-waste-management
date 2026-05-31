@@ -1,56 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Admin Dashboard</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<nav class="navbar">
-<h1>📊 Admin Dashboard</h1>
-</nav>
+<div class="navbar">
+
+    👨‍💼 Clean India - Admin Dashboard
+
+</div>
+
+<!-- Analytics Cards -->
 
 <div class="dashboard">
 
-<div class="card">
-<h2>Total Requests</h2>
-<h1 id="total">0</h1>
+    <div class="card">
+
+        <h1 id="total">0</h1>
+
+        <p>Total Requests</p>
+
+    </div>
+
+    <div class="card">
+
+        <h1 id="pending">0</h1>
+
+        <p>Pending Requests</p>
+
+    </div>
+
+    <div class="card">
+
+        <h1 id="completed">0</h1>
+
+        <p>Completed Requests</p>
+
+    </div>
+
+    <div class="card">
+
+        <h1 id="efficiency">0%</h1>
+
+        <p>Collection Efficiency</p>
+
+    </div>
+
 </div>
 
-<div class="card">
-<h2>Pending</h2>
-<h1 id="pending">0</h1>
+<!-- AI Recommendation -->
+
+<div class="ai-box">
+
+    <h2>🤖 AI Recommendation</h2>
+
+    <p id="aiSuggestion">
+
+        Loading Recommendation...
+
+    </p>
+
 </div>
 
-<div class="card">
-<h2>Completed</h2>
-<h1 id="completed">0</h1>
-</div>
+<!-- Request Section -->
+
+<div class="left" style="width:95%;margin:20px auto;">
+
+    <h1>📋 Waste Pickup Requests</h1>
+
+    <div id="adminRequests">
+
+    </div>
 
 </div>
-
-<div id="adminRequests"></div>
 
 <script src="admin.js"></script>
 
 </body>
+
 </html>
-<div class="request-card">
-
-<h2>🤖 AI Recommendation</h2>
-
-<p id="aiSuggestion">
-Loading...
-</p>
-
-</div>
-<h1 id="total">0</h1>
-
-<h1 id="pending">0</h1>
-
-<h1 id="completed">0</h1>
-
-<div id="adminRequests"></div>
-
-<p id="aiSuggestion"></p>

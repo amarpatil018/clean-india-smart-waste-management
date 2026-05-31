@@ -1,36 +1,79 @@
 function submitRequest() {
 
+    let name =
+    document.getElementById("name").value.trim();
+
+    let house =
+    document.getElementById("house").value.trim();
+
+    let street =
+    document.getElementById("street").value.trim();
+
+    let waste =
+    document.getElementById("waste").value;
+
+    // Validation
+
+    if(name === "" || house === "" || street === ""){
+
+        alert("Please fill all fields");
+
+        return;
+    }
+
+    // Create Request Object
+
     let request = {
 
-        name: document.getElementById("name").value,
+        name: name,
 
-        house: document.getElementById("house").value,
+        house: house,
 
-        street: document.getElementById("street").value,
+        street: street,
 
-        waste: document.getElementById("waste").value,
+        waste: waste,
 
-        status: "Pending"
+        status: "Pending",
+
+        date: new Date().toLocaleDateString()
 
     };
 
+    // Get Existing Requests
+
     let requests =
-    JSON.parse(localStorage.getItem("requests"))
-    || [];
+    JSON.parse(
+        localStorage.getItem("requests")
+    ) || [];
+
+    // Add New Request
 
     requests.push(request);
+
+    // Save Back
 
     localStorage.setItem(
         "requests",
         JSON.stringify(requests)
     );
 
+    // Success Message
+
     document.getElementById("message")
     .innerHTML =
-    "✅ Request Submitted Successfully!";
+
+    "✅ Request Submitted Successfully!<br><br>" +
+
+    "🔔 Pickup will be scheduled shortly.";
+
+    // Clear Form
 
     document.getElementById("name").value = "";
+
     document.getElementById("house").value = "";
+
     document.getElementById("street").value = "";
+
+    document.getElementById("waste").selectedIndex = 0;
 
 }
