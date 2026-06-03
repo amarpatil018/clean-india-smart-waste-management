@@ -96,8 +96,7 @@ password === "resident123")
 
 alert("Resident Login Successful");
 
-window.location.href =
-"resident.html";
+window.location.href ="resident.html";
 
 }
 else{
