@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Clean India - Resident Portal</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    ♻ Clean India - Resident Portal
+
+</div>
+
+
+
+<div class="hero">
+
+    <div class="left">
+
+        <h1>Welcome to Clean India</h1>
+
+        <p>
+
+            Thank you for helping create a cleaner,
+            greener and smarter India.
+
+        </p>
+
+        <br>
+
+        <p>
+
+            Schedule your waste pickup quickly
+            and efficiently.
+
+        </p>
+
+    </div>
+
+    <div class="right">
+
+        <h2>Request Waste Pickup</h2>
+
+        <input
+        type="text"
+        id="name"
+        placeholder="Enter Your Name">
+
+        <input
+        type="text"
+        id="house"
+        placeholder="House Number">
+
+        <input
+        type="text"
+        id="street"
+        placeholder="Street Name">
+
+        <select id="waste">
+
+            <option>
+                Wet Waste
+            </option>
+
+            <option>
+                Dry Waste
+            </option>
+
+        </select>
+
+        <button onclick="submitRequest()">
+
+            Submit Request
+
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
