@@ -82,26 +82,28 @@ function submitRequest() {
     console.log(username);
     console.log(password);
 
-    if(
-        (username === "rahul" &&
-         password === "user123")
+ if(
 
-        ||
+(username === "rahul" &&
+password === "user123")
 
-        (username === "priya" &&
-         password === "resident123")
-    ){
+||
 
-        alert("Resident Login Successful");
+(username === "priya" &&
+password === "resident123")
 
-        window.location.href = "index.html";
+){
 
-    }
-    else{
+alert("Resident Login Successful");
 
-        alert(
-        "Invalid Resident Username or Password"
-        );
+window.location.href =
+"resident.html";
 
-    }
+}
+else{
 
+alert(
+"Invalid Resident Username or Password"
+);
+
+}
