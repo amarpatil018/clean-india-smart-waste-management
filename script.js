@@ -77,3 +77,31 @@ function submitRequest() {
     document.getElementById("waste").selectedIndex = 0;
 
 }
+
+
+    console.log(username);
+    console.log(password);
+
+    if(
+        (username === "rahul" &&
+         password === "user123")
+
+        ||
+
+        (username === "priya" &&
+         password === "resident123")
+    ){
+
+        alert("Resident Login Successful");
+
+        window.location.href = "index.html";
+
+    }
+    else{
+
+        alert(
+        "Invalid Resident Username or Password"
+        );
+
+    }
+

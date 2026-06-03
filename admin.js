@@ -188,4 +188,16 @@ location.reload();
 setInterval(()=>{
 document.getElementById("datetime").innerHTML =
 new Date().toLocaleString();
-},1000);
+},1000);username = username.toLowerCase();
+
+if(
+    (username === "rahul" &&
+     password === "user123")
+
+    ||
+
+    (username === "priya" &&
+     password === "resident123")
+){
+    window.location.href = "index.html";
+}
