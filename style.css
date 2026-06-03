@@ -9,7 +9,124 @@ box-sizing:border-box;
 font-family:'Segoe UI',sans-serif;
 }
 
-body{
+/* ==========================
+   LOGIN PAGE
+========================== */
+
+.login-body{
+
+height:100vh;
+
+background:
+linear-gradient(
+135deg,
+#0f2027,
+#203a43,
+#2c5364
+);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+.container{
+
+width:90%;
+max-width:1100px;
+
+display:flex;
+
+background:white;
+
+border-radius:25px;
+
+overflow:hidden;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.3);
+
+}
+
+.left{
+
+flex:1;
+
+padding:60px;
+
+background:
+linear-gradient(
+135deg,
+#1b5e20,
+#43a047,
+#81c784
+);
+
+color:white;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+
+}
+
+.left h1{
+
+font-size:52px;
+margin-bottom:15px;
+
+}
+
+.left h2{
+
+font-size:28px;
+margin-bottom:25px;
+
+}
+
+.left p{
+
+font-size:18px;
+line-height:1.8;
+
+}
+
+.right{
+
+flex:1;
+
+padding:60px;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+
+background:white;
+
+}
+
+.right h2{
+
+text-align:center;
+color:#1b5e20;
+margin-bottom:25px;
+
+}
+
+.footer-text{
+
+text-align:center;
+margin-top:15px;
+color:#666;
+
+}
+
+/* ==========================
+   WEBSITE PAGES
+========================== */
+
+.page-body{
 
 background:
 linear-gradient(
@@ -46,15 +163,13 @@ font-size:28px;
 
 font-weight:bold;
 
-letter-spacing:1px;
-
 box-shadow:
 0 4px 12px rgba(0,0,0,.2);
 
 }
 
 /* ==========================
-   DASHBOARD CARDS
+   DASHBOARD
 ========================== */
 
 .dashboard{
@@ -92,8 +207,7 @@ transition:.3s;
 
 .card:hover{
 
-transform:
-translateY(-5px);
+transform:translateY(-5px);
 
 }
 
@@ -111,12 +225,10 @@ margin-bottom:10px;
 
 color:#666;
 
-font-size:16px;
-
 }
 
 /* ==========================
-   MAIN SECTION
+   HERO SECTION
 ========================== */
 
 .hero{
@@ -136,10 +248,10 @@ flex-wrap:wrap;
 }
 
 /* ==========================
-   LEFT PANEL
+   FORM BOX
 ========================== */
 
-.left{
+.form-box{
 
 background:white;
 
@@ -154,46 +266,7 @@ box-shadow:
 
 }
 
-.left h1{
-
-color:#1b5e20;
-
-margin-bottom:15px;
-
-font-size:32px;
-
-}
-
-.left p{
-
-font-size:18px;
-
-line-height:1.8;
-
-color:#444;
-
-}
-
-/* ==========================
-   RIGHT PANEL FORM
-========================== */
-
-.right{
-
-background:white;
-
-width:500px;
-
-padding:35px;
-
-border-radius:20px;
-
-box-shadow:
-0 10px 25px rgba(0,0,0,.12);
-
-}
-
-.right h2{
+.form-box h2{
 
 text-align:center;
 
@@ -202,6 +275,10 @@ color:#1b5e20;
 margin-bottom:20px;
 
 }
+
+/* ==========================
+   INPUTS
+========================== */
 
 input,
 select{
@@ -262,13 +339,12 @@ transition:.3s;
 
 button:hover{
 
-transform:
-translateY(-2px);
+transform:translateY(-2px);
 
 }
 
 /* ==========================
-   SUCCESS MESSAGE
+   MESSAGE
 ========================== */
 
 #message{
@@ -286,7 +362,7 @@ text-align:center;
 }
 
 /* ==========================
-   REQUEST CARDS
+   REQUEST CARD
 ========================== */
 
 .request-card{
@@ -312,20 +388,13 @@ margin-bottom:10px;
 
 }
 
-.request-card p{
-
-margin-bottom:8px;
-
-}
-
 /* ==========================
-   STATUS COLORS
+   STATUS
 ========================== */
 
 .pending{
 
 color:orange;
-
 font-weight:bold;
 
 }
@@ -333,7 +402,6 @@ font-weight:bold;
 .progress{
 
 color:blue;
-
 font-weight:bold;
 
 }
@@ -341,7 +409,6 @@ font-weight:bold;
 .completed{
 
 color:green;
-
 font-weight:bold;
 
 }
@@ -379,32 +446,23 @@ margin-bottom:10px;
 
 @media(max-width:900px){
 
-.hero{
-
+.container{
 flex-direction:column;
+}
 
+.hero{
+flex-direction:column;
 align-items:center;
-
 }
 
 .left,
-.right{
-
+.right,
+.form-box{
 width:90%;
-
 }
 
 .card{
-
 width:90%;
+}
 
-}}
-
-body {
-  background: linear-gradient(
-    135deg,
-    #1b5e20,
-    #4caf50,
-    #a5d6a7
-  );
 }

@@ -78,31 +78,127 @@ function submitRequest() {
 
 }
 
+function login(){
 
-    console.log(username);
-    console.log(password);
+let username =
+document.getElementById("username")
+.value
+.trim()
+.toLowerCase();
 
- if(
+let password =
+document.getElementById("password")
+.value
+.trim();
 
-(username === "rahul" &&
-password === "user123")
+let role =
+document.getElementById("role")
+.value;
 
-||
 
-(username === "priya" &&
-password === "resident123")
+// ADMIN
 
-){
+if(role === "admin"){
 
-alert("Resident Login Successful");
+    if(
 
-window.location.href ="resident.html";
+    (username === "amar patil" &&
+    password === "12345678")
+
+    ||
+
+    (username === "ravi kumar" &&
+    password === "admin123")
+
+    ){
+
+        alert("Admin Login Successful");
+
+        window.location.href =
+        "admin.html";
+
+    }
+
+    else{
+
+        alert(
+        "Invalid Admin Username or Password"
+        );
+
+    }
 
 }
+
+
+// COLLECTOR
+
+else if(role === "collector"){
+
+    if(
+
+    (username === "suresh" &&
+    password === "collect123")
+
+    ||
+
+    (username === "mahesh" &&
+    password === "pickup123")
+
+    ){
+
+        alert(
+        "Collector Login Successful"
+        );
+
+        window.location.href =
+        "collector.html";
+
+    }
+
+    else{
+
+        alert(
+        "Invalid Collector Username or Password"
+        );
+
+    }
+
+}
+
+
+// RESIDENT
+
 else{
 
-alert(
-"Invalid Resident Username or Password"
-);
+    if(
+
+    (username === "rahul" &&
+    password === "user123")
+
+    ||
+
+    (username === "priya" &&
+    password === "resident123")
+
+    ){
+
+        alert(
+        "Resident Login Successful"
+        );
+
+        window.location.href =
+        "resident.html";
+
+    }
+
+    else{
+
+        alert(
+        "Invalid Resident Username or Password"
+        );
+
+    }
+
+}
 
 }
