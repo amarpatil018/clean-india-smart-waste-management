@@ -9,6 +9,9 @@ document.getElementById("house").value.trim();
 let street =
 document.getElementById("street").value.trim();
 
+let customerType =
+document.getElementById("customerType").value;
+
 let waste =
 document.getElementById("waste").value;
 
@@ -33,6 +36,8 @@ name: name,
 house: house,
 
 street: street,
+
+customerType: customerType,
 
 waste: waste,
 
@@ -75,10 +80,11 @@ document.getElementById("house").value = "";
 
 document.getElementById("street").value = "";
 
+document.getElementById("customerType").selectedIndex = 0;
+
 document.getElementById("waste").selectedIndex = 0;
 
 }
-
 
 
 // LOGIN FUNCTION

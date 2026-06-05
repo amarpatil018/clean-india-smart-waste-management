@@ -1,26 +1,18 @@
 let requests =
-JSON.parse(
-localStorage.getItem("requests")
-) || [];
+JSON.parse(localStorage.getItem("requests")) || [];
 
 let adminRequests =
 document.getElementById("adminRequests");
 
-/* ==========================
-   DASHBOARD
-========================== */
+/* Dashboard */
 
 let total = requests.length;
 
 let pending =
-requests.filter(
-r => r.status === "Pending"
-).length;
+requests.filter(r => r.status === "Pending").length;
 
 let completed =
-requests.filter(
-r => r.status === "Completed"
-).length;
+requests.filter(r => r.status === "Completed").length;
 
 document.getElementById("total").innerHTML =
 total;
@@ -36,18 +28,14 @@ let efficiency = 0;
 if(total > 0){
 
 efficiency =
-Math.round(
-(completed / total) * 100
-);
+Math.round((completed / total) * 100);
 
 }
 
 document.getElementById("efficiency").innerHTML =
 efficiency + "%";
 
-/* ==========================
-   AI SUGGESTION
-========================== */
+/* AI Suggestion */
 
 let suggestion = "";
 
@@ -76,13 +64,10 @@ suggestion =
 
 }
 
-document.getElementById(
-"aiSuggestion"
-).innerHTML = suggestion;
+document.getElementById("aiSuggestion")
+.innerHTML = suggestion;
 
-/* ==========================
-   REQUESTS
-========================== */
+/* Requests */
 
 function loadRequests(){
 
@@ -148,9 +133,7 @@ Status: ${request.status}
 
 loadRequests();
 
-/* ==========================
-   STATUS UPDATE
-========================== */
+/* Status Update */
 
 function startPickup(index){
 
@@ -180,9 +163,7 @@ location.reload();
 
 }
 
-/* ==========================
-   LIVE CLOCK
-========================== */
+/* Clock */
 
 setInterval(()=>{
 
@@ -192,9 +173,7 @@ new Date().toLocaleString();
 
 },1000);
 
-/* ==========================
-   PIE CHARTS
-========================== */
+/* Charts */
 
 function loadCharts(){
 
@@ -210,7 +189,7 @@ requests.forEach(req=>{
 if(req.waste === "Wet Waste"){
 wet++;
 }
-else if(req.waste === "Dry Waste"){
+else{
 dry++;
 }
 
@@ -227,63 +206,29 @@ shops++;
 });
 
 new Chart(
-
 document.getElementById("wasteChart"),
-
 {
 type:"pie",
-
 data:{
-
-labels:[
-"Wet Waste",
-"Dry Waste"
-],
-
+labels:["Wet Waste","Dry Waste"],
 datasets:[{
-
-data:[
-wet,
-dry
-]
-
+data:[wet,dry]
 }]
-
 }
-
 }
-
 );
 
 new Chart(
-
 document.getElementById("customerChart"),
-
 {
 type:"pie",
-
 data:{
-
-labels:[
-"Houses",
-"Hotels",
-"Shops"
-],
-
+labels:["House","Hotel","Shop"],
 datasets:[{
-
-data:[
-houses,
-hotels,
-shops
-]
-
+data:[houses,hotels,shops]
 }]
-
 }
-
 }
-
 );
 
 }

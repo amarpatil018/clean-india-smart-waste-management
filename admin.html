@@ -1,18 +1,24 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Admin Dashboard</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="style.css">
 
 </head>
 
 <body>
+
+<!-- NAVBAR -->
 
 <div class="navbar">
 
@@ -20,55 +26,73 @@
 
 </div>
 
-<!-- Dashboard Cards -->
+<!-- DASHBOARD CARDS -->
 
 <div class="dashboard">
 
 <div class="card">
+
 <h1 id="total">0</h1>
+
 <p>Total Requests</p>
+
 </div>
 
 <div class="card">
+
 <h1 id="pending">0</h1>
+
 <p>Pending Requests</p>
+
 </div>
 
 <div class="card">
+
 <h1 id="completed">0</h1>
+
 <p>Completed Requests</p>
+
 </div>
 
 <div class="card">
+
 <h1 id="efficiency">0%</h1>
+
 <p>Collection Efficiency</p>
-</div>
 
 </div>
 
-<!-- AI Suggestion -->
+</div>
+
+<!-- AI RECOMMENDATION -->
 
 <div class="ai-box">
 
 <h2>🤖 AI Recommendation</h2>
 
 <p id="aiSuggestion">
-Loading...
+
+Loading Recommendation...
+
 </p>
 
 </div>
 
-<!-- Live Date Time -->
+<!-- LIVE DATE & TIME -->
 
 <div class="ai-box">
 
 <h2>📅 Date & Time</h2>
 
-<p id="datetime"></p>
+<p id="datetime">
+
+Loading...
+
+</p>
 
 </div>
 
-<!-- Charts -->
+<!-- PIE CHARTS -->
 
 <div class="chart-container">
 
@@ -90,20 +114,24 @@ Loading...
 
 </div>
 
-<!-- Requests -->
+<!-- REQUEST SECTION -->
 
 <div class="section-box"
 style="width:95%;margin:20px auto;">
 
 <h1>📋 Waste Pickup Requests</h1>
 
-<div id="adminRequests"></div>
+<div id="adminRequests">
 
 </div>
 
-<!-- Chart JS -->
+</div>
+
+<!-- CHART JS -->
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- ADMIN JS -->
 
 <script src="admin.js"></script>
 
