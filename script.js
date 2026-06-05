@@ -1,82 +1,87 @@
 function submitRequest() {
 
-    let name =
-    document.getElementById("name").value.trim();
+let name =
+document.getElementById("name").value.trim();
 
-    let house =
-    document.getElementById("house").value.trim();
+let house =
+document.getElementById("house").value.trim();
 
-    let street =
-    document.getElementById("street").value.trim();
+let street =
+document.getElementById("street").value.trim();
 
-    let waste =
-    document.getElementById("waste").value;
+let waste =
+document.getElementById("waste").value;
 
-    // Validation
 
-    if(name === "" || house === "" || street === ""){
+// Validation
 
-        alert("Please fill all fields");
+if(name === "" || house === "" || street === ""){
 
-        return;
-    }
+alert("Please fill all fields");
 
-    // Create Request Object
-
-    let request = {
-
-        name: name,
-
-        house: house,
-
-        street: street,
-
-        waste: waste,
-
-        status: "Pending",
-
-        date: new Date().toLocaleDateString()
-
-    };
-
-    // Get Existing Requests
-
-    let requests =
-    JSON.parse(
-        localStorage.getItem("requests")
-    ) || [];
-
-    // Add New Request
-
-    requests.push(request);
-
-    // Save Back
-
-    localStorage.setItem(
-        "requests",
-        JSON.stringify(requests)
-    );
-
-    // Success Message
-
-    document.getElementById("message")
-    .innerHTML =
-
-    "✅ Request Submitted Successfully!<br><br>" +
-
-    "🔔 Pickup will be scheduled shortly.";
-
-    // Clear Form
-
-    document.getElementById("name").value = "";
-
-    document.getElementById("house").value = "";
-
-    document.getElementById("street").value = "";
-
-    document.getElementById("waste").selectedIndex = 0;
+return;
 
 }
+
+
+// Request Object
+
+let request = {
+
+name: name,
+
+house: house,
+
+street: street,
+
+waste: waste,
+
+status: "Pending",
+
+date: new Date().toLocaleDateString()
+
+};
+
+
+// Existing Requests
+
+let requests =
+JSON.parse(localStorage.getItem("requests"))
+|| [];
+
+requests.push(request);
+
+
+// Save
+
+localStorage.setItem(
+"requests",
+JSON.stringify(requests)
+);
+
+
+// Success Message
+
+document.getElementById("message")
+.innerHTML =
+"✅ Request Submitted Successfully!<br><br>🔔 Pickup will be scheduled shortly.";
+
+
+// Clear Form
+
+document.getElementById("name").value = "";
+
+document.getElementById("house").value = "";
+
+document.getElementById("street").value = "";
+
+document.getElementById("waste").selectedIndex = 0;
+
+}
+
+
+
+// LOGIN FUNCTION
 
 function login(){
 
@@ -100,32 +105,32 @@ document.getElementById("role")
 
 if(role === "admin"){
 
-    if(
+if(
 
-    (username === "amar patil" &&
-    password === "12345678")
+(username === "amar patil" &&
+password === "12345678")
 
-    ||
+||
 
-    (username === "ravi kumar" &&
-    password === "admin123")
+(username === "ravi kumar" &&
+password === "admin123")
 
-    ){
+){
 
-        alert("Admin Login Successful");
+alert("Admin Login Successful");
 
-        window.location.href =
-        "admin.html";
+window.location.href =
+"admin.html";
 
-    }
+}
 
-    else{
+else{
 
-        alert(
-        "Invalid Admin Username or Password"
-        );
+alert(
+"Invalid Admin Username or Password"
+);
 
-    }
+}
 
 }
 
@@ -134,34 +139,34 @@ if(role === "admin"){
 
 else if(role === "collector"){
 
-    if(
+if(
 
-    (username === "suresh" &&
-    password === "collect123")
+(username === "suresh" &&
+password === "collect123")
 
-    ||
+||
 
-    (username === "mahesh" &&
-    password === "pickup123")
+(username === "mahesh" &&
+password === "pickup123")
 
-    ){
+){
 
-        alert(
-        "Collector Login Successful"
-        );
+alert(
+"Collector Login Successful"
+);
 
-        window.location.href =
-        "collector.html";
+window.location.href =
+"collector.html";
 
-    }
+}
 
-    else{
+else{
 
-        alert(
-        "Invalid Collector Username or Password"
-        );
+alert(
+"Invalid Collector Username or Password"
+);
 
-    }
+}
 
 }
 
@@ -170,34 +175,34 @@ else if(role === "collector"){
 
 else{
 
-    if(
+if(
 
-    (username === "rahul" &&
-    password === "user123")
+(username === "rahul" &&
+password === "user123")
 
-    ||
+||
 
-    (username === "priya" &&
-    password === "resident123")
+(username === "priya" &&
+password === "resident123")
 
-    ){
+){
 
-        alert(
-        "Resident Login Successful"
-        );
+alert(
+"Resident Login Successful"
+);
 
-        window.location.href =
-        "resident.html";
+window.location.href =
+"resident.html";
 
-    }
+}
 
-    else{
+else{
 
-        alert(
-        "Invalid Resident Username or Password"
-        );
+alert(
+"Invalid Resident Username or Password"
+);
 
-    }
+}
 
 }
 

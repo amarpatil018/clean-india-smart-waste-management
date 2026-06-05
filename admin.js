@@ -201,3 +201,108 @@ if(
 ){
     window.location.href = "index.html";
 }
+function loadCharts(){
+
+let requests =
+JSON.parse(localStorage.getItem("requests")) || [];
+
+/* =====================
+   WASTE TYPE ANALYSIS
+===================== */
+
+let wet = 0;
+let dry = 0;
+let mixed = 0;
+
+requests.forEach(req => {
+
+if(req.waste === "Wet Waste")
+wet++;
+
+else if(req.waste === "Dry Waste")
+dry++;
+
+else
+mixed++;
+
+});
+
+new Chart(
+document.getElementById("wasteChart"),
+{
+type:"pie",
+
+data:{
+
+labels:[
+"Wet Waste",
+"Dry Waste",
+"Mixed Waste"
+],
+
+datasets:[{
+
+data:[
+wet,
+dry,
+mixed
+]
+
+}]
+
+}
+
+});
+
+
+/* =====================
+   CUSTOMER ANALYSIS
+===================== */
+
+let houses = 0;
+let hotels = 0;
+let shops = 0;
+
+requests.forEach(req => {
+
+if(req.customerType === "House")
+houses++;
+
+else if(req.customerType === "Hotel")
+hotels++;
+
+else if(req.customerType === "Shop")
+shops++;
+
+});
+
+new Chart(
+document.getElementById("customerChart"),
+{
+type:"pie",
+
+data:{
+
+labels:[
+"Houses",
+"Hotels",
+"Shops"
+],
+
+datasets:[{
+
+data:[
+houses,
+hotels,
+shops
+]
+
+}]
+
+}
+
+});
+
+}
+
+loadCharts();

@@ -151,13 +151,15 @@ history.innerHTML += `
 
 <div class="request-card">
 
-<h3>${request.name}</h3>
+<h3>👤 ${request.name}</h3>
 
-<p><b>House:</b> ${request.house}</p>
+<p>🏠 <b>House No:</b> ${request.house}</p>
 
-<p><b>Street:</b> ${request.street}</p>
+<p>📍 <b>Address:</b> ${request.street}</p>
 
-<p><b>Waste:</b> ${request.waste}</p>
+<p>♻️ <b>Waste Type:</b> ${request.waste}</p>
+
+<p>📅 <b>Date:</b> ${request.date || "Today"}</p>
 
 <p class="completed">
 ✅ Pickup Completed

@@ -2,10 +2,8 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Collector Dashboard</title>
 
 <link rel="stylesheet" href="style.css">
@@ -15,56 +13,43 @@
 <body>
 
 <div class="navbar">
-
 🚛 Clean India - Collector Dashboard
-
 </div>
 
-<!-- Collector Stats -->
+<!-- Dashboard Cards -->
 
 <div class="dashboard">
 
 <div class="card">
-
 <h1 id="pendingCount">0</h1>
-
 <p>Pending Pickups</p>
-
 </div>
 
 <div class="card">
-
 <h1 id="progressCount">0</h1>
-
 <p>In Progress</p>
-
 </div>
 
 <div class="card">
-
 <h1 id="completedCount">0</h1>
-
 <p>Completed Pickups</p>
-
 </div>
 
 </div>
 
-<!-- Collector Message -->
+<!-- Route Suggestion -->
 
 <div class="ai-box">
 
 <h2>📍 Today's Collection Route</h2>
 
 <p id="routeMessage">
-
 Loading Route...
-
 </p>
 
 </div>
 
-<!-- Active Pickups -->
+<!-- Active Requests -->
 
 <div class="left" style="width:95%;margin:20px auto;">
 
@@ -72,17 +57,25 @@ Loading Route...
 
 <div id="collectorRequests">
 
-</div>
+<p style="text-align:center;color:gray;">
+No Active Pickups
+</p>
 
 </div>
 
-<!-- Pickup History -->
+</div>
+
+<!-- History -->
 
 <div class="left" style="width:95%;margin:20px auto;">
 
 <h1>✅ Completed Pickup History</h1>
 
 <div id="history">
+
+<p style="text-align:center;color:gray;">
+No Completed Pickups
+</p>
 
 </div>
 
