@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,92 +14,226 @@
 
 <body>
 
+<!-- NAVBAR -->
+
 <div class="navbar">
 
-    ♻ Clean India - Resident Portal
+♻ Clean India - Resident Portal
 
 </div>
 
-
+<!-- MAIN SECTION -->
 
 <div class="hero">
 
-    <div class="left">
+<!-- LEFT SIDE -->
 
-        <h1>Welcome to Clean India</h1>
+<div class="left">
 
-        <p>
+<h1>Welcome to Clean India</h1>
 
-            Thank you for helping create a cleaner,
-            greener and smarter India.
+<p>
 
-        </p>
+Thank you for helping create a cleaner,
+greener and smarter India.
 
-        <br>
+</p>
 
-        <p>
+<br>
 
-            Schedule your waste pickup quickly
-            and efficiently.
+<p>
 
-        </p>
+Our waste collection service provides
+guaranteed pickup for homes, hotels,
+and shops.
 
-    </div>
+</p>
 
-    <div class="right">
+<br>
 
-        <h2>Request Waste Pickup</h2>
+<p>
 
-        <input
-        type="text"
-        id="name"
-        placeholder="Enter Your Name">
+Please segregate waste into wet and
+dry categories before submitting
+a request.
 
-        <input
-        type="text"
-        id="house"
-        placeholder="House Number">
+</p>
 
-        <input
-        type="text"
-        id="street"
-        placeholder="Street Name">
+</div>
 
-        <select id="customerType">
+<!-- RIGHT SIDE -->
 
-         <option>House</option>
+<div class="right">
 
-         <option>Hotel</option>
+<h2>Request Waste Pickup</h2>
 
-         <option>Shop</option>
+<input
+type="text"
+id="name"
+placeholder="Enter Your Name">
 
-        </select>
+<input
+type="text"
+id="house"
+placeholder="House Number">
 
-        <select id="waste">
+<input
+type="text"
+id="street"
+placeholder="Street Name">
 
-            <option>
-                Wet Waste
-            </option>
+<select id="customerType">
 
-            <option>
-                Dry Waste
-            </option>
+<option value="House">
+House
+</option>
 
-        </select>
+<option value="Hotel">
+Hotel
+</option>
 
-        <button onclick="submitRequest()">
+<option value="Shop">
+Shop
+</option>
 
-            Submit Request
+</select>
 
-        </button>
+<select id="waste">
 
-        <p id="message"></p>
+<option value="Wet Waste">
+Wet Waste
+</option>
 
-    </div>
+<option value="Dry Waste">
+Dry Waste
+</option>
+
+</select>
+
+<button onclick="submitRequest()">
+
+Submit Request
+
+</button>
+
+<p id="message"></p>
+
+</div>
+
+</div>
+
+<!-- REQUEST HISTORY -->
+
+<div class="left"
+style="
+width:95%;
+margin:20px auto;
+">
+
+<h1>📋 My Requests</h1>
+
+<div id="requestHistory">
+
+</div>
 
 </div>
 
 <script src="script.js"></script>
+
+<script>
+
+function loadHistory(){
+
+let requests =
+JSON.parse(
+localStorage.getItem("requests")
+) || [];
+
+let history =
+document.getElementById("requestHistory");
+
+history.innerHTML = "";
+
+if(requests.length === 0){
+
+history.innerHTML =
+
+"<p>No requests submitted yet.</p>";
+
+return;
+
+}
+
+requests.forEach((request)=>{
+
+let statusColor = "";
+
+if(request.status === "Pending"){
+
+statusColor = "orange";
+
+}
+
+else if(request.status === "In Progress"){
+
+statusColor = "blue";
+
+}
+
+else{
+
+statusColor = "green";
+
+}
+
+history.innerHTML += `
+
+<div class="request-card">
+
+<h3>👤 ${request.name}</h3>
+
+<p>
+🏠 <b>House:</b>
+${request.house}
+</p>
+
+<p>
+📍 <b>Street:</b>
+${request.street}
+</p>
+
+<p>
+🏢 <b>Customer:</b>
+${request.customerType}
+</p>
+
+<p>
+♻ <b>Waste:</b>
+${request.waste}
+</p>
+
+<p>
+📅 <b>Date:</b>
+${request.date}
+</p>
+
+<p style="color:${statusColor};font-weight:bold;">
+
+${request.status}
+
+</p>
+
+</div>
+
+`;
+
+});
+
+}
+
+loadHistory();
+
+</script>
 
 </body>
 
