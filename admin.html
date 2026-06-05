@@ -16,92 +16,97 @@
 
 <div class="navbar">
 
-    👨‍💼 Clean India - Admin Dashboard
+👨‍💼 Clean India - Admin Dashboard
 
 </div>
 
-<!-- Analytics Cards -->
+<!-- Dashboard Cards -->
 
 <div class="dashboard">
 
-    <div class="card">
+<div class="card">
+<h1 id="total">0</h1>
+<p>Total Requests</p>
+</div>
 
-        <h1 id="total">0</h1>
+<div class="card">
+<h1 id="pending">0</h1>
+<p>Pending Requests</p>
+</div>
 
-        <p>Total Requests</p>
+<div class="card">
+<h1 id="completed">0</h1>
+<p>Completed Requests</p>
+</div>
 
-    </div>
-
-    <div class="card">
-
-        <h1 id="pending">0</h1>
-
-        <p>Pending Requests</p>
-
-    </div>
-
-    <div class="card">
-
-        <h1 id="completed">0</h1>
-
-        <p>Completed Requests</p>
-
-    </div>
-
-    <div class="card">
-
-        <h1 id="efficiency">0%</h1>
-
-        <p>Collection Efficiency</p>
-
-    </div>
+<div class="card">
+<h1 id="efficiency">0%</h1>
+<p>Collection Efficiency</p>
+</div>
 
 </div>
 
-<!-- AI Recommendation -->
+<!-- AI Suggestion -->
 
 <div class="ai-box">
 
-    <h2>🤖 AI Recommendation</h2>
+<h2>🤖 AI Recommendation</h2>
 
-    <p id="aiSuggestion">
-
-        Loading Recommendation...
-
-    </p>
+<p id="aiSuggestion">
+Loading...
+</p>
 
 </div>
 
-<!-- Request Section -->
+<!-- Live Date Time -->
 
-<div class="left" style="width:95%;margin:20px auto;">
+<div class="ai-box">
 
-    <h1>📋 Waste Pickup Requests</h1>
+<h2>📅 Date & Time</h2>
 
-    <div id="adminRequests">
-
-    </div>
-
-</div>
-
-<script src="admin.js"></script>
 <p id="datetime"></p>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</div>
+
+<!-- Charts -->
 
 <div class="chart-container">
 
-    <div class="chart-box">
-        <h2>♻ Waste Type Distribution</h2>
-        <canvas id="wasteChart"></canvas>
-    </div>
+<div class="chart-box">
 
-    <div class="chart-box">
-        <h2>🏠 Customer Distribution</h2>
-        <canvas id="customerChart"></canvas>
-    </div>
+<h2>♻ Waste Type Distribution</h2>
+
+<canvas id="wasteChart"></canvas>
 
 </div>
+
+<div class="chart-box">
+
+<h2>🏠 Customer Distribution</h2>
+
+<canvas id="customerChart"></canvas>
+
+</div>
+
+</div>
+
+<!-- Requests -->
+
+<div class="section-box"
+style="width:95%;margin:20px auto;">
+
+<h1>📋 Waste Pickup Requests</h1>
+
+<div id="adminRequests"></div>
+
+</div>
+
+<!-- Chart JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="admin.js"></script>
+
 </body>
 
 </html>

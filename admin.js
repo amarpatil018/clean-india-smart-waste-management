@@ -6,8 +6,11 @@ localStorage.getItem("requests")
 let adminRequests =
 document.getElementById("adminRequests");
 
-let total =
-requests.length;
+/* ==========================
+   DASHBOARD
+========================== */
+
+let total = requests.length;
 
 let pending =
 requests.filter(
@@ -19,20 +22,14 @@ requests.filter(
 r => r.status === "Completed"
 ).length;
 
+document.getElementById("total").innerHTML =
+total;
 
-// Dashboard Numbers
+document.getElementById("pending").innerHTML =
+pending;
 
-document.getElementById("total")
-.innerHTML = total;
-
-document.getElementById("pending")
-.innerHTML = pending;
-
-document.getElementById("completed")
-.innerHTML = completed;
-
-
-// Efficiency
+document.getElementById("completed").innerHTML =
+completed;
 
 let efficiency = 0;
 
@@ -45,12 +42,12 @@ Math.round(
 
 }
 
-document.getElementById("efficiency")
-.innerHTML =
+document.getElementById("efficiency").innerHTML =
 efficiency + "%";
 
-
-// AI Recommendation
+/* ==========================
+   AI SUGGESTION
+========================== */
 
 let suggestion = "";
 
@@ -60,21 +57,18 @@ suggestion =
 "🚛 High request volume detected. Deploy extra collection vehicles.";
 
 }
-
 else if(pending > 5){
 
 suggestion =
 "📈 Moderate load. Increase collection frequency tomorrow.";
 
 }
-
 else if(pending > 0){
 
 suggestion =
 "✅ Current resources are sufficient for today's pickups.";
 
 }
-
 else{
 
 suggestion =
@@ -84,11 +78,11 @@ suggestion =
 
 document.getElementById(
 "aiSuggestion"
-).innerHTML =
-suggestion;
+).innerHTML = suggestion;
 
-
-// Display Requests
+/* ==========================
+   REQUESTS
+========================== */
 
 function loadRequests(){
 
@@ -118,15 +112,17 @@ adminRequests.innerHTML += `
 
 <div class="request-card">
 
-<h3>${request.name}</h3>
+<h3>👤 ${request.name}</h3>
 
-<p><b>House:</b> ${request.house}</p>
+<p><b>🏠 House:</b> ${request.house}</p>
 
-<p><b>Street:</b> ${request.street}</p>
+<p><b>📍 Street:</b> ${request.street}</p>
 
-<p><b>Waste:</b> ${request.waste}</p>
+<p><b>🏢 Customer:</b> ${request.customerType || "House"}</p>
 
-<p><b>Date:</b> ${request.date}</p>
+<p><b>♻ Waste:</b> ${request.waste}</p>
+
+<p><b>📅 Date:</b> ${request.date}</p>
 
 <p class="${statusClass}">
 Status: ${request.status}
@@ -152,8 +148,9 @@ Status: ${request.status}
 
 loadRequests();
 
-
-// Start Pickup
+/* ==========================
+   STATUS UPDATE
+========================== */
 
 function startPickup(index){
 
@@ -169,9 +166,6 @@ location.reload();
 
 }
 
-
-// Complete Pickup
-
 function completePickup(index){
 
 requests[index].status =
@@ -185,50 +179,57 @@ JSON.stringify(requests)
 location.reload();
 
 }
+
+/* ==========================
+   LIVE CLOCK
+========================== */
+
 setInterval(()=>{
-document.getElementById("datetime").innerHTML =
+
+document.getElementById("datetime")
+.innerHTML =
 new Date().toLocaleString();
-},1000);username = username.toLowerCase();
 
-if(
-    (username === "rahul" &&
-     password === "user123")
+},1000);
 
-    ||
+/* ==========================
+   PIE CHARTS
+========================== */
 
-    (username === "priya" &&
-     password === "resident123")
-){
-    window.location.href = "index.html";
-}
 function loadCharts(){
-
-let requests =
-JSON.parse(localStorage.getItem("requests")) || [];
-
-/* =====================
-   WASTE TYPE ANALYSIS
-===================== */
 
 let wet = 0;
 let dry = 0;
-let mixed = 0;
 
-requests.forEach(req => {
+let houses = 0;
+let hotels = 0;
+let shops = 0;
 
-if(req.waste === "Wet Waste")
+requests.forEach(req=>{
+
+if(req.waste === "Wet Waste"){
 wet++;
-
-else if(req.waste === "Dry Waste")
+}
+else if(req.waste === "Dry Waste"){
 dry++;
+}
 
-else
-mixed++;
+if(req.customerType === "House"){
+houses++;
+}
+else if(req.customerType === "Hotel"){
+hotels++;
+}
+else if(req.customerType === "Shop"){
+shops++;
+}
 
 });
 
 new Chart(
+
 document.getElementById("wasteChart"),
+
 {
 type:"pie",
 
@@ -236,48 +237,28 @@ data:{
 
 labels:[
 "Wet Waste",
-"Dry Waste",
-"Mixed Waste"
+"Dry Waste"
 ],
 
 datasets:[{
 
 data:[
 wet,
-dry,
-mixed
+dry
 ]
 
 }]
 
 }
 
-});
+}
 
-
-/* =====================
-   CUSTOMER ANALYSIS
-===================== */
-
-let houses = 0;
-let hotels = 0;
-let shops = 0;
-
-requests.forEach(req => {
-
-if(req.customerType === "House")
-houses++;
-
-else if(req.customerType === "Hotel")
-hotels++;
-
-else if(req.customerType === "Shop")
-shops++;
-
-});
+);
 
 new Chart(
+
 document.getElementById("customerChart"),
+
 {
 type:"pie",
 
@@ -301,7 +282,9 @@ shops
 
 }
 
-});
+}
+
+);
 
 }
 
